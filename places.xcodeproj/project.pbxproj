@@ -108,7 +108,6 @@
 			children = (
 				8C46E2AD27A39FEC00126703 /* Info.plist */,
 				8C313CD627720275007C8670 /* placesApp.swift */,
-				8C313CD827720275007C8670 /* ContentView.swift */,
 				8C313D002772029C007C8670 /* places.json */,
 				8C313CDA27720277007C8670 /* Assets.xcassets */,
 				8C313CDC27720277007C8670 /* Preview Content */,
@@ -119,6 +118,7 @@
 		8C313CDC27720277007C8670 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				8C313CD827720275007C8670 /* ContentView.swift */,
 				8CAE43F3278CC0B800A182E0 /* PlacePrivider.swift */,
 				8CAE43F5278CC23E00A182E0 /* PlacesView.swift */,
 				8C46E2AB27A38C2600126703 /* LocationsContentView.swift */,

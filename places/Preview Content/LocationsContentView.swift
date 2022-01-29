@@ -12,6 +12,7 @@ struct LocationsContentView: View {
     
     var body: some View {
         
+        
             VStack(alignment: .trailing){
             Spacer()
 //            Text(locations?.id ?? "nada")

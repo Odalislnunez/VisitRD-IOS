@@ -20,20 +20,18 @@ struct PlacesView: View {
     
     var body: some View {
         
-        
-        
-        
         NavigationView{
             List(searchResults){emojiDetails in
+                
+                
                 NavigationLink(destination: {
                     EmojiDetailsView(emojiDetails: emojiDetails)
                 })
-                {
-                    Text("\(emojiDetails.emoji)\(emojiDetails.name)")
-                    
+                
+               {Text("\(emojiDetails.emoji)\(emojiDetails.name)")
                     .frame(width: 128, height: 128)
                     .clipShape(RoundedRectangle(cornerRadius: 2))
-                            .font(.title)
+                        .font(.title)
                         .padding(5)
                 }
                 }
