@@ -14,19 +14,17 @@ struct ContentView: View {
     @State private var locations: [Location] = []
    // @State private var placeDetails: [Location] = []
    
-
     var body: some View {
             
         NavigationView{
               
             List(locations){locations in
-                
-               
-                NavigationLink(locations.place, destination: {
+    
+                NavigationLink(locations.name, destination: {
                     PlaceDetailsView(placeDetails: locations)
                         })
                 
-            AsyncImage(url: URL(string: locations.images)){
+            AsyncImage(url: URL(string: locations.images[0])){
                     image in
                 image.resizable()
                 .aspectRatio(contentMode:.fit)
@@ -40,15 +38,15 @@ struct ContentView: View {
                  .shadow(color:.yellow, radius:5, x: 0.50, y: 0.50)
                    
 
-                    }.navigationTitle("Places")
-                                                         
+                    }.navigationTitle("Visit RD")
+                    
                 }.onAppear(perform: readFile)
                 
        
     }
     
     private func readFile() {
-        if let url = URL(string: "https://visitrd.000webhostapp.com/locations.json"),
+        if let url = URL(string: "https://visitrd-ios.000webhostapp.com/Places.json"),
             let  data = try? Data(contentsOf: url){
             let  decoder = JSONDecoder()
             if let jsonData = try? decoder.decode(JSONData.self, from: data){
@@ -68,16 +66,23 @@ struct JSONData: Decodable {
     
 }
 struct Location: Decodable,Identifiable {
-    let id:Int
-    let place:String
-    let desc:String
-   // let location:String
-    let latitude:Double
-    let longitude:Double
-   // let rating: String
-    var images: String
-//    let comments: String
-    }
+    let id: Int
+    let name: String
+    let location: String
+    let description: String
+    let latitude: Double
+    let longitude: Double
+    let rating: Double
+    var images: [String]
+    let comments: String
+    
+//    let id: Int
+//    let place: String
+//    let desc: String
+//    let latitude: Double
+//    let longitude: Double
+//    var images: String
+}
 
 struct PlaceDetailsView: View{
     var placeDetails:Location
@@ -85,12 +90,12 @@ struct PlaceDetailsView: View{
         HStack{
            
             VStack(alignment:.leading) {
-                Text(placeDetails.place)
+                Text(placeDetails.name)
                 .font(.largeTitle)
                 //.bold()
                 //Spacer()
                 .padding(5)
-            Text(placeDetails.desc)
+            Text(placeDetails.location)
             Spacer()
             .font(.caption2)
             //.padding()
@@ -99,9 +104,8 @@ struct PlaceDetailsView: View{
         .navigationTitle("Details")
             Spacer()
             //.padding(10)
-            
-            
-    }
+        
+}
         
 //        VStack{
 //            WebView(request: URLRequest(url: URL(string: "https://www.google.com/maps/place/\(placeDetails.place)")!)).aspectRatio(contentMode:.fit)
@@ -115,7 +119,7 @@ struct PlaceDetailsView: View{
         
         VStack(alignment:.trailing)
         {
-            WebView(request: URLRequest(url: URL(string: "https://www.visitarepublicadominicana.org/que-ver-en-\(placeDetails.place)")!)).aspectRatio(contentMode:.fit)
+            WebView(request: URLRequest(url: URL(string: "https://www.visitarepublicadominicana.org/que-ver-en-\(placeDetails.name)")!)).aspectRatio(contentMode:.fit)
         }
 
 //        VStack(alignment:.trailing)
