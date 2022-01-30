@@ -20,7 +20,7 @@ struct ContentView: View {
               
             List(locations){locations in
     
-                NavigationLink(locations.name, destination: {
+                NavigationLink(locations.name + "\n" + locations.location, destination: {
                     PlaceDetailsView(placeDetails: locations)
                         })
                 
@@ -84,24 +84,25 @@ struct Location: Decodable,Identifiable {
 //    var images: String
 }
 
-struct PlaceDetailsView: View{
+struct PlaceDetailsView: View {
+    
     var placeDetails:Location
     var body: some View{
         HStack{
            
             VStack(alignment:.leading) {
-                Text(placeDetails.name)
+                Text(placeDetails.location)
                 .font(.largeTitle)
                 //.bold()
                 //Spacer()
                 .padding(5)
-            Text(placeDetails.location)
+            Text(placeDetails.description)
             Spacer()
             .font(.caption2)
             //.padding()
                 
         }.padding([.leading, .trailing],24)
-        .navigationTitle("Details")
+                .navigationTitle(placeDetails.name)
             Spacer()
             //.padding(10)
         
@@ -119,7 +120,7 @@ struct PlaceDetailsView: View{
         
         VStack(alignment:.trailing)
         {
-            WebView(request: URLRequest(url: URL(string: "https://www.visitarepublicadominicana.org/que-ver-en-\(placeDetails.name)")!)).aspectRatio(contentMode:.fit)
+            WebView(request: URLRequest(url: URL(string: placeDetails.comments)!)).aspectRatio(contentMode:.fit)
         }
 
 //        VStack(alignment:.trailing)
