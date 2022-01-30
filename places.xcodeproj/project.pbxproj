@@ -14,11 +14,13 @@
 		8C313CE827720277007C8670 /* placesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C313CE727720277007C8670 /* placesTests.swift */; };
 		8C313CF227720277007C8670 /* placesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C313CF127720277007C8670 /* placesUITests.swift */; };
 		8C313CF427720277007C8670 /* placesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C313CF327720277007C8670 /* placesUITestsLaunchTests.swift */; };
-		8C313D012772029C007C8670 /* places.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C313D002772029C007C8670 /* places.json */; };
 		8C46E2AC27A38C2600126703 /* LocationsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46E2AB27A38C2600126703 /* LocationsContentView.swift */; };
 		8C46E2B227A4567600126703 /* PlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C46E2B027A4567600126703 /* PlacesModel.xcdatamodeld */; };
-		8CAE43F4278CC0B800A182E0 /* PlacePrivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE43F3278CC0B800A182E0 /* PlacePrivider.swift */; };
 		8CAE43F6278CC23E00A182E0 /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE43F5278CC23E00A182E0 /* PlacesView.swift */; };
+		FCDDDD5727A665B100CE4188 /* PlaceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */; };
+		FCDDDD5927A66C8300CE4188 /* PlacesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDDD5827A66C8300CE4188 /* PlacesDetailView.swift */; };
+		FCDDDD5B27A66E1400CE4188 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDDD5A27A66E1400CE4188 /* MapView.swift */; };
+		FCDDDD5D27A66FB200CE4188 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDDD5C27A66FB200CE4188 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +51,14 @@
 		8C313CED27720277007C8670 /* placesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = placesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C313CF127720277007C8670 /* placesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placesUITests.swift; sourceTree = "<group>"; };
 		8C313CF327720277007C8670 /* placesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8C313D002772029C007C8670 /* places.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = places.json; sourceTree = "<group>"; };
 		8C46E2AB27A38C2600126703 /* LocationsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsContentView.swift; sourceTree = "<group>"; };
 		8C46E2AD27A39FEC00126703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8C46E2B127A4567600126703 /* PlacesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlacesModel.xcdatamodel; sourceTree = "<group>"; };
-		8CAE43F3278CC0B800A182E0 /* PlacePrivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePrivider.swift; sourceTree = "<group>"; };
 		8CAE43F5278CC23E00A182E0 /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
+		FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDownloader.swift; sourceTree = "<group>"; };
+		FCDDDD5827A66C8300CE4188 /* PlacesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDetailView.swift; sourceTree = "<group>"; };
+		FCDDDD5A27A66E1400CE4188 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FCDDDD5C27A66FB200CE4188 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +112,10 @@
 			children = (
 				8C46E2AD27A39FEC00126703 /* Info.plist */,
 				8C313CD627720275007C8670 /* placesApp.swift */,
-				8C313D002772029C007C8670 /* places.json */,
 				8C313CDA27720277007C8670 /* Assets.xcassets */,
 				8C313CDC27720277007C8670 /* Preview Content */,
+				FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */,
+				FCDDDD5C27A66FB200CE4188 /* PersistenceController.swift */,
 			);
 			path = places;
 			sourceTree = "<group>";
@@ -119,9 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				8C313CD827720275007C8670 /* ContentView.swift */,
-				8CAE43F3278CC0B800A182E0 /* PlacePrivider.swift */,
 				8CAE43F5278CC23E00A182E0 /* PlacesView.swift */,
 				8C46E2AB27A38C2600126703 /* LocationsContentView.swift */,
+				FCDDDD5827A66C8300CE4188 /* PlacesDetailView.swift */,
+				FCDDDD5A27A66E1400CE4188 /* MapView.swift */,
 				8C313CDD27720277007C8670 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -256,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C313D012772029C007C8670 /* places.json in Resources */,
 				8C313CDE27720277007C8670 /* Preview Assets.xcassets in Resources */,
 				8C313CDB27720277007C8670 /* Assets.xcassets in Resources */,
 			);
@@ -288,7 +293,10 @@
 				8C46E2AC27A38C2600126703 /* LocationsContentView.swift in Sources */,
 				8C46E2B227A4567600126703 /* PlacesModel.xcdatamodeld in Sources */,
 				8CAE43F6278CC23E00A182E0 /* PlacesView.swift in Sources */,
-				8CAE43F4278CC0B800A182E0 /* PlacePrivider.swift in Sources */,
+				FCDDDD5727A665B100CE4188 /* PlaceDownloader.swift in Sources */,
+				FCDDDD5B27A66E1400CE4188 /* MapView.swift in Sources */,
+				FCDDDD5927A66C8300CE4188 /* PlacesDetailView.swift in Sources */,
+				FCDDDD5D27A66FB200CE4188 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
