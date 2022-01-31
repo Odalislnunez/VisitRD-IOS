@@ -61,15 +61,17 @@ struct MapView: UIViewRepresentable {
     mapView.setRegion(region, animated: true)
 
     // Current Location
-      let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0, longitude: locationManager.lastLocation?.coordinate.longitude ?? 0))
+//      let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0, longitude: locationManager.lastLocation?.coordinate.longitude ?? 0))
+      
+      let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 19.39862, longitude: -70.74283))
 
     // Place Location
       let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: plac.latitude, longitude: plac.longitude))
 
     let request = MKDirections.Request()
-    request.source = MKMapItem(placemark: p1)
-    request.destination = MKMapItem(placemark: p2)
-    request.transportType = .automobile
+      request.source = MKMapItem(placemark: p1)
+      request.destination = MKMapItem(placemark: p2)
+      request.transportType = .automobile
 
     let directions = MKDirections(request: request)
     directions.calculate { response, error in
