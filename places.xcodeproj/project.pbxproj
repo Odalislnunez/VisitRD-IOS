@@ -15,6 +15,7 @@
 		8C313CF227720277007C8670 /* placesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C313CF127720277007C8670 /* placesUITests.swift */; };
 		8C313CF427720277007C8670 /* placesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C313CF327720277007C8670 /* placesUITestsLaunchTests.swift */; };
 		8C46E2B227A4567600126703 /* PlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C46E2B027A4567600126703 /* PlacesModel.xcdatamodeld */; };
+		FC356EA427A88CC300C664F6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC356EA327A88CC300C664F6 /* LocationManager.swift */; };
 		FC86C88527A708030036D4C6 /* Place+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86C88427A708030036D4C6 /* Place+CoreDataClass.swift */; };
 		FC86C88727A708300036D4C6 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86C88627A708300036D4C6 /* Place+CoreDataProperties.swift */; };
 		FCDDDD5727A665B100CE4188 /* PlaceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */; };
@@ -53,6 +54,7 @@
 		8C313CF327720277007C8670 /* placesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8C46E2AD27A39FEC00126703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8C46E2B127A4567600126703 /* PlacesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlacesModel.xcdatamodel; sourceTree = "<group>"; };
+		FC356EA327A88CC300C664F6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FC86C88427A708030036D4C6 /* Place+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC86C88627A708300036D4C6 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDownloader.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				8C313CD627720275007C8670 /* placesApp.swift */,
 				FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */,
 				FCDDDD5C27A66FB200CE4188 /* PersistenceController.swift */,
+				FC356EA327A88CC300C664F6 /* LocationManager.swift */,
 			);
 			path = places;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			files = (
 				8C313CD927720275007C8670 /* ContentView.swift in Sources */,
 				8C313CD727720275007C8670 /* placesApp.swift in Sources */,
+				FC356EA427A88CC300C664F6 /* LocationManager.swift in Sources */,
 				8C46E2B227A4567600126703 /* PlacesModel.xcdatamodeld in Sources */,
 				FC86C88727A708300036D4C6 /* Place+CoreDataProperties.swift in Sources */,
 				FC86C88527A708030036D4C6 /* Place+CoreDataClass.swift in Sources */,

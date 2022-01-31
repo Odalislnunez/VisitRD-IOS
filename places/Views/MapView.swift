@@ -7,14 +7,14 @@ import MapKit
 import SwiftUI
 import UIKit
 
-struct MapView: View {
+struct MapsView: View {
     @StateObject var place: Place
     @State private var directions: [String] = []
     @State private var showDirections = false
     
   var body: some View {
     VStack {
-        MapView(place: $directions)
+        MapView(plac: place, directions: $directions)
 
       Button(action: {
         self.showDirections.toggle()
@@ -41,10 +41,11 @@ struct MapView: View {
 }
 
 struct MapView: UIViewRepresentable {
+    typealias UIViewType = MKMapView
 
-  typealias UIViewType = MKMapView
-
-  @Binding var directions: [String]
+    @StateObject var plac: Place
+    @StateObject var locationManager = LocationManager()
+    @Binding var directions: [String]
 
   func makeCoordinator() -> MapViewCoordinator {
     return MapViewCoordinator()
@@ -55,27 +56,15 @@ struct MapView: UIViewRepresentable {
     mapView.delegate = context.coordinator
 
     let region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude),
+        center: CLLocationCoordinate2D(latitude: plac.latitude, longitude: plac.longitude),
       span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     mapView.setRegion(region, animated: true)
 
     // Current Location
-      var locManager = CLLocationManager()
-      locManager.requestWhenInUseAuthorization()
-      
-      var currentLocation: CLLocation!
-
-      if
-         CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-         CLLocationManager.authorizationStatus() ==  .authorizedAlways
-      {
-          currentLocation = locManager.location
-      }
-
-      let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude))
+      let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0, longitude: locationManager.lastLocation?.coordinate.longitude ?? 0))
 
     // Place Location
-      let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude))
+      let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: plac.latitude, longitude: plac.longitude))
 
     let request = MKDirections.Request()
     request.source = MKMapItem(placemark: p1)
@@ -95,6 +84,9 @@ struct MapView: UIViewRepresentable {
     }
     return mapView
   }
+    
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+    }
     
   class MapViewCoordinator: NSObject, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

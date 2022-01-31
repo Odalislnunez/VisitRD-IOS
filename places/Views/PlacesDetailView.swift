@@ -68,7 +68,7 @@ struct PlacesDetailView: View {
           ).toolbar {
             ToolbarItem {
                 HStack {
-                    NavigationLink(destination: MapView(place: place),
+                    NavigationLink(destination: MapsView(place: place),
                                    isActive: $isShowingMap,
                                    label: {EmptyView()} )
                     
