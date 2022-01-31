@@ -2,8 +2,6 @@
 //  PersistenceController.swift
 //  places
 //
-//  Created by user209612 on 1/30/22.
-//
 
 import CoreData
 
@@ -15,8 +13,15 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem = Place(context: viewContext)
-            newItem.name = UUID().uuidString
             newItem.id = 0
+            newItem.name = UUID().uuidString
+            newItem.location = ""
+            newItem.descrip = ""
+            newItem.latitude = 0.00
+            newItem.longitude = 0.00
+            newItem.rating = 0.00
+            newItem.images = ""
+            newItem.comments = ""
         }
         do {
             try viewContext.save()
