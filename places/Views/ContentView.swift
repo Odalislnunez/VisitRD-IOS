@@ -28,11 +28,12 @@ struct ContentView: View {
                         } placeholder: {
                             ProgressView()
                         }.frame(width: 40, height: 40, alignment: .leading)
-                        
+                    VStack {
                         Text(place.name ?? "")
                         
                         Text(place.location ?? "")
                         }
+                    }
                     }
                 }
             }.navigationTitle("Visit RD")

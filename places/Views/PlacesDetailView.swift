@@ -14,16 +14,31 @@ struct PlacesDetailView: View {
     @StateObject var place: Place
     
     @State var isShowingMap = false
+    
+    var body: some View{
+        HStack{
+            VStack(alignment:.leading) {
+                Text(place.name ?? "")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(5)
+                    .frame(width:500, height: 10, alignment: .center)
+                
+                Text(place.location ?? "")
+                    .font(.subheadline)
+                    .padding(5)
+                    .frame(width: 500, height: 40, alignment: .center)
+                
+                AsyncImage(url: URL(string: place.images ?? "")) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }.frame(width: 500, height: 150, alignment: .center)
+                
+                Text(place.descrip ?? "")
+                    Spacer()
+                    .font(.caption2)
 
-    var body: some View {
-        VStack {
-            AsyncImage(url: place.imageURL) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }.frame(width: 150, height: 150, alignment: .center)
-            
-            Text(place.name ?? "")
         }.toolbar {
             ToolbarItem {
                 HStack {
@@ -36,43 +51,21 @@ struct PlacesDetailView: View {
                     }
                 }
             }
+        }.padding([.leading, .trailing],24)
+            Spacer()
+        
+//        VStack(alignment:.trailing)
+//            {
+//                WebView(request: URLRequest(url: URL(string: place.comments ?? "")!)).aspectRatio(contentMode:.fit)
+//            }
         }
     }
 }
 
 //struct PlacesDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PlacesDetailView()
+//        PlacesDetailView(place: place).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 //    }
-//}
-//
-
-//struct PlaceDetailsView: View {
-//
-//    var placeDetails:Location
-//    var body: some View{
-//        HStack{
-//
-//            VStack(alignment:.leading) {
-//                Text(placeDetails.location)
-//                .font(.largeTitle)
-//                //.bold()
-//                //Spacer()
-//                .padding(5)
-//            Text(placeDetails.description)
-//            Spacer()
-//            .font(.caption2)
-//            //.padding()
-//
-//        }.padding([.leading, .trailing],24)
-//                .navigationTitle(placeDetails.name)
-//            Spacer()
-//            //.padding(10)
-//    VStack(alignment:.trailing)
-//        {
-//            WebView(request: URLRequest(url: URL(string: place.comments)!)).aspectRatio(contentMode:.fit)
-//        }
-//
 //}
 
 struct WebView : UIViewRepresentable {

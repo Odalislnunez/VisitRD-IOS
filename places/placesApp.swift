@@ -2,19 +2,17 @@
 //  placesApp.swift
 //  places
 //
-//  Created by MercWareTecnology on 21/12/21.
-//
 
 import SwiftUI
 
 @main
 struct placesApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-           // PlacesView()
-            //LocationsContentView()
-            
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
