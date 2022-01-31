@@ -10,14 +10,12 @@ import CoreData
 public class Place: NSManagedObject, Decodable {
     
     static let contextKey = CodingUserInfoKey(rawValue: "context")!
-
-    var imageURL: URL { URL(string: images ?? "")! }
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
         case location = "location"
-        case descrip = "descrip"
+        case descrip = "description"
         case latitude = "latitude"
         case longitude = "longitude"
         case rating = "rating"
@@ -38,7 +36,7 @@ public class Place: NSManagedObject, Decodable {
         // Decode
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        self.id = try values.decode(Int.self, forKey: CodingKeys.id)
+        self.id = try values.decode(Int32.self, forKey: CodingKeys.id)
         self.name = try values.decode(String.self, forKey: CodingKeys.name)
         self.location = try values.decode(String.self, forKey: CodingKeys.location)
         self.descrip = try values.decode(String.self, forKey: CodingKeys.descrip)

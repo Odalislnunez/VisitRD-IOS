@@ -2,8 +2,6 @@
 //  PlaceDownloader.swift
 //  places
 //
-//  Created by user209612 on 1/30/22.
-//
 
 import Foundation
 import CoreData

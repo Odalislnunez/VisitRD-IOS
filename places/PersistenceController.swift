@@ -7,21 +7,15 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
-
+    
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem = Place(context: viewContext)
-            newItem.id = 0
-            newItem.name = UUID().uuidString
-            newItem.location = ""
-            newItem.descrip = ""
-            newItem.latitude = 0.00
-            newItem.longitude = 0.00
-            newItem.rating = 0.00
-            newItem.images = ""
-            newItem.comments = ""
+            newItem.name = "Monumento"
+            newItem.location = "Santiago"
+            newItem.images = "https://lh5.googleusercontent.com/p/AF1QipM6m4VuHejk_PRf2N41zLcyJG_4FxAx6cl2DZ54=w1080-k-no"
         }
         do {
             try viewContext.save()
@@ -47,3 +41,21 @@ struct PersistenceController {
     }
 }
 
+public func clearAllCoreData() {
+    let entities = PersistenceController.shared.container.managedObjectModel.entities
+    entities.flatMap({ $0.name }).forEach(clearDeepObjectEntity)
+}
+
+private func clearDeepObjectEntity(_ entity: String) {
+    let context = PersistenceController.shared.container.viewContext
+
+    let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+
+    do {
+        try context.execute(deleteRequest)
+        try context.save()
+    } catch {
+        print ("There was an error")
+    }
+}
