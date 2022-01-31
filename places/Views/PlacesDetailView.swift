@@ -2,8 +2,6 @@
 //  PlacesDetailView.swift
 //  places
 //
-//  Created by user209612 on 1/30/22.
-//
 
 import SwiftUI
 import CoreData
@@ -14,10 +12,10 @@ struct PlacesDetailView: View {
     @StateObject var place: Place
     
     @State var isShowingMap = false
-    
+
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: place.comments ?? "") { image in
+            AsyncImage(url: place.imageURL) { image in
                 image.resizable()
             } placeholder: {
                 ProgressView()
@@ -40,32 +38,32 @@ struct PlacesDetailView: View {
     }
 }
 
-struct PlacesDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesDetailView()
-    }
-}
-
-struct PlaceDetailsView: View {
-
-    var placeDetails:Location
-    var body: some View{
-        HStack{
-
-            VStack(alignment:.leading) {
-                Text(placeDetails.location)
-                .font(.largeTitle)
-                //.bold()
-                //Spacer()
-                .padding(5)
-            Text(placeDetails.description)
-            Spacer()
-            .font(.caption2)
-            //.padding()
-
-        }.padding([.leading, .trailing],24)
-                .navigationTitle(placeDetails.name)
-            Spacer()
-            //.padding(10)
-
-}
+//struct PlacesDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlacesDetailView()
+//    }
+//}
+//
+//struct PlaceDetailsView: View {
+//
+//    var placeDetails:Location
+//    var body: some View{
+//        HStack{
+//
+//            VStack(alignment:.leading) {
+//                Text(placeDetails.location)
+//                .font(.largeTitle)
+//                //.bold()
+//                //Spacer()
+//                .padding(5)
+//            Text(placeDetails.description)
+//            Spacer()
+//            .font(.caption2)
+//            //.padding()
+//
+//        }.padding([.leading, .trailing],24)
+//                .navigationTitle(placeDetails.name)
+//            Spacer()
+//            //.padding(10)
+//
+//}

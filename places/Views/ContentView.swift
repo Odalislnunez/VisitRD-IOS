@@ -21,7 +21,7 @@ struct ContentView: View {
             List {
                 ForEach(places) { place in NavigationLink(destination: PlacesDetailView(place: place)) {
                     HStack {
-                        AsyncImage(url: URL(string: place.comment ?? "")) {
+                        AsyncImage(url: URL(string: place.images ?? "")) {
                             image in
                             image.resizable()
                         } placeholder: {
@@ -41,6 +41,8 @@ struct ContentView: View {
                 PlaceDownloader().download()
             }
         }
+    }
+}
             
 //            List(locations){locations in
 //
@@ -66,10 +68,10 @@ struct ContentView: View {
 //
 //                }.onAppear(perform: readFile)
                 
-       
-    }
-
-}
+//
+//    }
+//
+//}
 
 //struct PlaceDetailsView: View {
 //
@@ -92,36 +94,13 @@ struct ContentView: View {
 //                .navigationTitle(placeDetails.name)
 //            Spacer()
 //            //.padding(10)
+//    VStack(alignment:.trailing)
+//        {
+//            WebView(request: URLRequest(url: URL(string: place.comments)!)).aspectRatio(contentMode:.fit)
+//        }
 //
 //}
-        
-//        VStack{
-//            WebView(request: URLRequest(url: URL(string: "https://www.google.com/maps/place/\(placeDetails.place)")!)).aspectRatio(contentMode:.fit)
-//                .frame(width: 450, height: 650)
-//                .mask(RoundedRectangle(cornerRadius: 30))
-//                 .padding(2)
-//                 .shadow(color:.yellow, radius:5, x: 0.50, y: 0.50)
-//
-//        }
-//
-        
-        VStack(alignment:.trailing)
-        {
-            WebView(request: URLRequest(url: URL(string: place.comments)!)).aspectRatio(contentMode:.fit)
-        }
 
-//        VStack(alignment:.trailing)
-//        {
-//            WebView(request: URLRequest(url: URL(    string:"https://www.bing.com/images/search?q=\(placeDetails.place)")!)).aspectRatio(contentMode:.fit)
-//        }
-//
-        
-
-        
-        
-        
-    
-}
 struct WebView : UIViewRepresentable {
     let request: URLRequest
     func makeUIView(context: Context) -> WKWebView  {
@@ -148,6 +127,6 @@ struct ContentView_Previews: PreviewProvider {
     
 }
   
-}
+//}
   
 

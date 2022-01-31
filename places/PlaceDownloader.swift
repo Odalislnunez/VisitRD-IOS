@@ -10,7 +10,7 @@ import CoreData
 
 struct PlaceDownloader {
     
-    static let placeURL = URL(string:"https://visitrd-ios.000webhostapp.com/Places.json")!
+    static let placeURL = URL(string:"https://visitrd-ios.000webhostapp.com/SPlaces.json")!
     static var downloading = false
     
     func download() {
