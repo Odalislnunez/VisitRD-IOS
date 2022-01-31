@@ -5,6 +5,8 @@
 
 import SwiftUI
 import CoreData
+import MapKit
+import WebKit
 
 struct PlacesDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -44,6 +46,7 @@ struct PlacesDetailView: View {
 //    }
 //}
 //
+
 //struct PlaceDetailsView: View {
 //
 //    var placeDetails:Location
@@ -65,5 +68,20 @@ struct PlacesDetailView: View {
 //                .navigationTitle(placeDetails.name)
 //            Spacer()
 //            //.padding(10)
+//    VStack(alignment:.trailing)
+//        {
+//            WebView(request: URLRequest(url: URL(string: place.comments)!)).aspectRatio(contentMode:.fit)
+//        }
 //
 //}
+
+struct WebView : UIViewRepresentable {
+    let request: URLRequest
+    func makeUIView(context: Context) -> WKWebView  {
+        return WKWebView()
+    }
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.load(request)
+    }
+
+}

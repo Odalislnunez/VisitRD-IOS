@@ -89,7 +89,6 @@
 		8C313CCA27720275007C8670 = {
 			isa = PBXGroup;
 			children = (
-				8C46E2AF27A4563E00126703 /* coreData */,
 				8C313CD527720275007C8670 /* places */,
 				8C313CE627720277007C8670 /* placesTests */,
 				8C313CF027720277007C8670 /* placesUITests */,
@@ -111,25 +110,24 @@
 			isa = PBXGroup;
 			children = (
 				8C46E2AD27A39FEC00126703 /* Info.plist */,
-				8C313CD627720275007C8670 /* placesApp.swift */,
 				8C313CDA27720277007C8670 /* Assets.xcassets */,
+				8C46E2AF27A4563E00126703 /* Models */,
 				FC86C88327A7076A0036D4C6 /* Entities */,
-				8C313CDC27720277007C8670 /* Views */,
+				FCDE56FA27A76CE1005BCE87 /* Views */,
+				8C313CDC27720277007C8670 /* Preview Content */,
+				8C313CD627720275007C8670 /* placesApp.swift */,
 				FCDDDD5627A665B100CE4188 /* PlaceDownloader.swift */,
 				FCDDDD5C27A66FB200CE4188 /* PersistenceController.swift */,
 			);
 			path = places;
 			sourceTree = "<group>";
 		};
-		8C313CDC27720277007C8670 /* Views */ = {
+		8C313CDC27720277007C8670 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				8C313CD827720275007C8670 /* ContentView.swift */,
-				FCDDDD5827A66C8300CE4188 /* PlacesDetailView.swift */,
-				FCDDDD5A27A66E1400CE4188 /* MapView.swift */,
 				8C313CDD27720277007C8670 /* Preview Assets.xcassets */,
 			);
-			path = Views;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		8C313CE627720277007C8670 /* placesTests */ = {
@@ -149,12 +147,12 @@
 			path = placesUITests;
 			sourceTree = "<group>";
 		};
-		8C46E2AF27A4563E00126703 /* coreData */ = {
+		8C46E2AF27A4563E00126703 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8C46E2B027A4567600126703 /* PlacesModel.xcdatamodeld */,
 			);
-			path = coreData;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FC86C88327A7076A0036D4C6 /* Entities */ = {
@@ -164,6 +162,16 @@
 				FC86C88627A708300036D4C6 /* Place+CoreDataProperties.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		FCDE56FA27A76CE1005BCE87 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C313CD827720275007C8670 /* ContentView.swift */,
+				FCDDDD5827A66C8300CE4188 /* PlacesDetailView.swift */,
+				FCDDDD5A27A66E1400CE4188 /* MapView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
