@@ -52,7 +52,6 @@ struct ContentView: View {
                             searchText = ""
                         }, label: {
                             Text("Cancel")
-                                .padding(.horizontal)
                                 .padding(.trailing)
                                 .padding(.leading, 0)
                         })
