@@ -6,6 +6,8 @@
 	<string>Location access needed</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location access needed</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow to save</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

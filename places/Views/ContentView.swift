@@ -12,13 +12,56 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:\Place.location, ascending: true)], predicate: nil, animation: .default)
     
     private var places: FetchedResults<Place>
-   
+    
+    @State private var searchText = ""
+    @State var isSearching = false
+    
     var body: some View {
-        
         NavigationView{
-            
             List {
-                ForEach(places) { place in NavigationLink(destination: PlacesDetailView(place: place)) {
+                HStack {
+                    HStack {
+                        TextField("Buscar", text: $searchText)
+                            .padding(.leading, 24)
+                    }
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(6)
+                    .onTapGesture(perform: {
+                        isSearching = true
+                    })
+                    .overlay(
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                            Spacer()
+                            
+                            if isSearching {
+                                Button(action: { searchText = "" }, label: { Image(systemName: "xmark.circle.fill")
+                                        .padding(.vertical)
+                                })
+                            }
+                            
+                        }.padding(.horizontal, 10)
+                            .foregroundColor(.gray)
+                    ).transition(.move(edge: .trailing))
+                        .animation(.spring())
+                    
+                    if isSearching {
+                        Button(action: {
+                            isSearching = false
+                            searchText = ""
+                        }, label: {
+                            Text("Cancel")
+                                .padding(.horizontal)
+                                .padding(.trailing)
+                                .padding(.leading, 0)
+                        })
+                            .transition(.move(edge: .trailing))
+                            .animation(.spring())
+                    }
+                }
+                
+                ForEach(places.filter({ "\($0)".contains(searchText) || searchText.isEmpty })) { place in NavigationLink(destination: PlacesDetailView(place: place)) {
                         HStack {
                             AsyncImage(url: URL(string: place.images ?? "")) {
                                 image in
@@ -48,12 +91,12 @@ struct ContentView: View {
                                     maxHeight: .infinity,
                                     alignment: .topLeading
                                   )
-                        }
+                            }
                         }
                     }
                 }
-            }.navigationTitle("Visit RD")
-            
+            }
+            .navigationTitle("Visita RD")
         }.onAppear {
 //            clearAllCoreData()
             if places.count == 0 {

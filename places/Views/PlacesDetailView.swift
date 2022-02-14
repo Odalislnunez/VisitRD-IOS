@@ -14,8 +14,13 @@ struct PlacesDetailView: View {
     @StateObject var place: Place
     
     @State var isShowingMap = false
+    @State var items: [Any] = []
+    @State var sheet = false
     
     var body: some View{
+        let url = URL(string: place.images ?? "")
+        let data = try? Data(contentsOf: url!)
+        
         VStack(alignment: .center) {
             Text(place.name ?? "")
                 .font(.largeTitle)
@@ -24,7 +29,7 @@ struct PlacesDetailView: View {
             Text(place.location ?? "")
                 .font(.subheadline)
             
-            AsyncImage(url: URL(string: place.images ?? "")) {
+            AsyncImage(url: url) {
                 image in
                 image.resizable()
             } placeholder: {
@@ -72,12 +77,47 @@ struct PlacesDetailView: View {
                                    isActive: $isShowingMap,
                                    label: {EmptyView()} )
                     
-                    Button("View Map") {
-                        isShowingMap = true
+                    HStack {
+                        VStack{
+                            Button(action: {
+                                
+                                items.removeAll()
+                                items.append(UIImage(data: data!)!)
+                                sheet.toggle()
+                                
+                            }) {
+                                Image (systemName: "square.and.arrow.up")
+                            }
+                        }
+                        .sheet(isPresented: $sheet, content: {
+                            ShareSheet(items: items)
+                        })
+                        
+                        Button(action: {
+                            isShowingMap = true
+                        }) {
+                            Image(systemName: "mappin.and.ellipse")
+                        }
                     }
+                    
                 }
             }
         }.padding([.leading, .trailing],24)
+    }
+}
+
+struct ShareSheet : UIViewControllerRepresentable {
+    var items: [Any]
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        
     }
 }
 

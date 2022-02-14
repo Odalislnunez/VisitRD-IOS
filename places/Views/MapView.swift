@@ -76,7 +76,7 @@ struct MapView: UIViewRepresentable {
     let directions = MKDirections(request: request)
     directions.calculate { response, error in
       guard let route = response?.routes.first else { return }
-      mapView.addAnnotations([p1, p2])
+        mapView.addAnnotations([p1, p2])
       mapView.addOverlay(route.polyline)
       mapView.setVisibleMapRect(
         route.polyline.boundingMapRect,
